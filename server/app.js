@@ -5,6 +5,8 @@ var path = require('path'); // for path.join()
 // var logger = require('morgan');
 const todoAPI = require('./api/todoAPI')
 const indexRouter = require('./routes/index')
+
+const cors = require('cors')
 var app = express();
 
 /*
@@ -19,6 +21,10 @@ app.set('view engine', 'hbs');
 /* setting req-res Configs */
 // app.use(logger('dev'));
 app.use(express.json());
+app.use(cors({
+  origin : 'http://127.0.0.1:5500',
+  optionsSuccessStatus: 200,
+}))
 // app.use(express.urlencoded({ extended: false }));
 // app.use(cookieParser());
 app.use(express.static(__dirname + '/public'))
