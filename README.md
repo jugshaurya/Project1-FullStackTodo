@@ -102,19 +102,14 @@ check-list
   * [x] create a database => knex init => create a table using knex migrate:make <table name> => knex migrate:latest
 * [x] seed table with some random data to test the functionality   
 * [x] list all the todos from db to / path using express
-* [] create a db connection so that we can CRUD to/fro database
-  * [] create a db folder and a file inside it like knex.js, make a connection and require it in app.js
+* [x] create a db connection so that we can CRUD to/fro database
+  * [x] create a db folder and a file inside it like knex.js, make a connection and require it in app.js
  
+5. API  creation ON server side
+-------------------------------
+ * [x] app.get()
+ * [x] app.post()
+ * [x] app.put()
+ * [x] app.delete()
 
-
-
-
-
-
-
-
-
-
-
-
-* [] Client Side Code
+* [ ] Client Side Code
