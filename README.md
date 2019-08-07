@@ -120,5 +120,9 @@ index.js
 + ajax request
 
 serverside 
----------
+----------
 installing cors for cross-origin resource sharing from 'http://127.0.0.1:5500' to 'localhost:3000/api/todos'.
+app.use(cors({
+  origin : 'http://127.0.0.1:5500',
+  optionsSuccessStatus: 200,
+}

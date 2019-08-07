@@ -22,7 +22,7 @@ app.set('view engine', 'hbs');
 // app.use(logger('dev'));
 app.use(express.json());
 app.use(cors({
-  origin : 'http://127.0.0.1:5500',
+  origin: 'http://127.0.0.1:5500',
   optionsSuccessStatus: 200,
 }))
 // app.use(express.urlencoded({ extended: false }));
@@ -34,12 +34,12 @@ app.use('/api/todos', todoAPI);
 app.use('/', indexRouter);
 
 /* catch 404 and forward to error handler */
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404)); // createError([status], [message]) 
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   // res.locals : - An object that contains response local variables scoped to the request, and therefore available only to the view(s)
   // rendered during that request / response cycle (if any). Otherwise, this property is identical to app.locals.
