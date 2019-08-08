@@ -71,4 +71,13 @@ h1{
     margin-right:1em;
 } 
 
+.edit{
+    padding: .3em;
+    border: 3px solid red;
+}
 
+.garbage{
+    padding: .3em;
+    border: 3px solid blue;
+
+}

@@ -16,12 +16,12 @@ $(() => {
       todos.reduce((acum, item) => {
         return acum +
           `<div class="list-group-item"> 
-            <span class="title"><a href = 'single.html?id=${item.todoID}'> ${item.title}</a></span>
+            <span class="title"><a href = 'single.html?id=${item.todoID}'> ${item.title} (${item.todoID})</a></span>
             <span class = "edit">
-              <img src="edit.svg" alt="edit" />
+              <a href ='/edit.html?id=${item.todoID}'><img src="images/edit.svg" alt= "edit" /></a>
             </span>
             <span class ="garbage">
-              <img src="garbage.svg" alt="garbage" />
+              <a><img src="images/garbage.svg" alt="garbage" /></a>
             </span>
           </div>`
       }, '')
@@ -35,6 +35,11 @@ $(() => {
   $('.addbtn').click(e => { 
     window.location = '/new.html'
   });
+
+  // Delete Todos when garbage.svg is clicked
+  
+
+
 })
 
 
