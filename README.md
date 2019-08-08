@@ -113,20 +113,23 @@ check-list
  * [x] app.put()
  * [x] app.delete()
 
-* [ ] Client Side Code
+* [x] Client Side Code
 
 index.html
 style.css
 displayall.js
 addbtn
-new.html
-new.js
 + bootstrap added
 
-serverside 
+* [x] serverside 
 ----------
 installing cors for cross-origin resource sharing from 'http://127.0.0.1:5500' to 'http://localhost:3000/api/todos'.
 app.use(cors({
   origin : 'http://127.0.0.1:8080',
   optionsSuccessStatus: 200,
 }
+
+* [ ] client side
+
+new.html
+new.js
