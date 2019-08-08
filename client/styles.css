@@ -9,16 +9,20 @@ h1{
     margin-top: 1em;
     margin-bottom: 1em;
     text-align: center;
+    color: rgb(0,200,200);
+    text-shadow: 1px 1px 1px black;
+    text-decoration: underline;
 }
 
 
 .todos {
     box-shadow: 6px 6px 10px 1px gray , 6px 6px 10px 3px gray ;  
     display: block;
-    background: rgba(0,0,255,1);
+    background: rgb(0,200,200);
     padding-left: 1em;
     padding-right: 0px;
 }
+
 
 .row {
     margin-bottom: 1em;
@@ -42,10 +46,29 @@ h1{
     left: -.7em;
 }
 
-
-.list-group-item:hover {
-    background: lightcyan;
-    color: darkblue;
-    font-weight: bold;
-    font-size : 1rem;
+.list-group-item:hover{
+    background:lightgray;    
 }
+
+
+
+.title > a {
+    text-decoration: none;
+}
+
+.list-group-item img {
+    width: 20px;    
+}
+
+.list-group-item {
+    display: flex;
+}
+
+.list-group-item .title {
+    flex-grow: 1;
+}
+.list-group-item .edit{
+    margin-right:1em;
+} 
+
+

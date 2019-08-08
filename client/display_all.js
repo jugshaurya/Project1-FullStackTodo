@@ -15,7 +15,15 @@ $(() => {
     $todos.html( 
       todos.reduce((acum, item) => {
         return acum +
-          `<a href = 'single.html?id=${item.todoID}' class="list-group-item"> ${item.title} </a>`
+          `<div class="list-group-item"> 
+            <span class="title"><a href = 'single.html?id=${item.todoID}'> ${item.title}</a></span>
+            <span class = "edit">
+              <img src="edit.svg" alt="edit" />
+            </span>
+            <span class ="garbage">
+              <img src="garbage.svg" alt="garbage" />
+            </span>
+          </div>`
       }, '')
     )
   })

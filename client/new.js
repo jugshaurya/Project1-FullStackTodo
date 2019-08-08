@@ -25,14 +25,12 @@ $(() => {
     // validate todos
     if(validTodo(todo)){
       $.post(API_URL, todo)
-        .then(todos => {
-          console.log('sakfgksafkgfsagsaf')
-          console.log(todos[0])
+        .then(todo => {
           window.location = '/'
         })
         .catch(err => {
-          console.log()
           console.log(err)
+          window.location = '/error.html'
         })
     }else{
       // Invalid Todo

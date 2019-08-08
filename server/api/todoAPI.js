@@ -71,7 +71,7 @@ function validTodo(todo) {
 // done: Boolean
 // date - Date() 
 router.post('/', (req, res) => {
-  console.log(req.body)
+  // console.log(req.body)
   if (validTodo(req.body)) {
     const todo = {
       title: req.body.title,

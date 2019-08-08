@@ -133,3 +133,10 @@ app.use(cors({
 
 new.html
 new.js
+
+edit_delete.html
+  edit page - redirection from both index page and single page
+  delete btn - redirection from both index page and single page
+
+
+
