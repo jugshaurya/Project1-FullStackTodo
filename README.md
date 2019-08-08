@@ -15,6 +15,7 @@ handlebars.js as templating Engine for Express
 express.js for routing and rendering Pages
 + 
 FrontEnd (Bootstrap)
++ Ajax Request for data from API
 ```
 
 Steps followed : 
@@ -115,14 +116,17 @@ check-list
 * [ ] Client Side Code
 
 index.html
-index.js
+style.css
+displayall.js
+addbtn
+new.html
+new.js
 + bootstrap added
-+ ajax request
 
 serverside 
 ----------
-installing cors for cross-origin resource sharing from 'http://127.0.0.1:5500' to 'localhost:3000/api/todos'.
+installing cors for cross-origin resource sharing from 'http://127.0.0.1:5500' to 'http://localhost:3000/api/todos'.
 app.use(cors({
-  origin : 'http://127.0.0.1:5500',
+  origin : 'http://127.0.0.1:8080',
   optionsSuccessStatus: 200,
 }

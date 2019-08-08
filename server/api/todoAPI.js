@@ -26,6 +26,37 @@ router.get('/', (req, res) => {
     })
 })
 
+
+router.get('/:id', (req, res) => {
+  // display all the todos
+  const id = req.params.id
+  if(!isValidId(id)){
+    res.render('error', {
+      message: 'Invalid ID',
+      error: {
+        stack: err.stack,
+      }
+    })
+  }
+  knex('todos')
+    .select()
+    .where({ todoID: Number(id) })
+    .then(todo => {
+      // any developers out there are using Express to create RESTful APIs, and most of the time such APIs return JSON data. 
+      // res.json() is similar to res.send() but more effective if sending json data
+      res.json(todo)
+    })
+    .catch(err => {
+      res.render('error', {
+        message: 'Error while talking to DB',
+        error: {
+          stack: err.stack,
+        }
+      })
+    })
+})
+
+
 function validTodo(todo) {
   return true;
 }
