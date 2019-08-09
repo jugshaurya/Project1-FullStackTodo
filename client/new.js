@@ -16,7 +16,6 @@ $(() => {
     const $title = $('#title').val()
     const $description = $('#description').val()
     const $priority = $('#priority').val()
-    console.log($title, $description, $priority)
     const todo = {
       title: $title,
       description : $description,
@@ -24,14 +23,19 @@ $(() => {
     };
     // validate todos
     if(validTodo(todo)){
-      $.post(API_URL, todo)
-        .then(todo => {
-          window.location = '/'
-        })
-        .catch(err => {
-          console.log(err)
-          window.location = '/error.html'
-        })
+      $.ajax({
+        type: "POST",
+        url: API_URL,
+        data: JSON.stringify(todo),
+        dataType: "json",
+        contentType: "application/json;charset=utf-8",
+      })
+      .then(todos => {
+        window.location = '/'
+      })
+      .catch(err => {
+        window.location = '/error.html'
+      })
     }else{
       // Invalid Todo
     }

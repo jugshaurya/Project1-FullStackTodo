@@ -18,6 +18,8 @@ FrontEnd (Bootstrap)
 +
 Ajax Request for data request to API at server
 
+Note: API receiving json data and returing json data
+app.use(express.urlencoded( {extend:true} )) is not there at server.
 ```
 
 Steps followed : 

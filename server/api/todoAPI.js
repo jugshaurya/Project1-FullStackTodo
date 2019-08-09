@@ -71,7 +71,6 @@ function validTodo(todo) {
 // done: Boolean
 // date - Date() 
 router.post('/', (req, res) => {
-  // console.log(req.body)
   if (validTodo(req.body)) {
     const todo = {
       title: req.body.title,
@@ -89,7 +88,6 @@ router.post('/', (req, res) => {
         res.json(todo)
       })
       .catch(err => {
-        console.log(err)
         res.render('error', {
           message: 'DB Insertion Failure',
           error: err
@@ -148,7 +146,6 @@ router.put('/:id', (req, res) => {
 })
 
 router.delete('/:id', (req, res)  => {
-  console.log(req.params.id)
   const id = req.params.id
   if(isValidId(id)){
     knex('todos')
