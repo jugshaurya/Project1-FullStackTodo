@@ -11,19 +11,25 @@ $(() => {
   // 1. render all todos
   $.get(API_URL)
     .then(todos => {
+      todos.sort((a, b) => a.todoID - b.todoID);
       const $todos = $('.list-group')
-      $todos.html(
+      $todos.html(                
         todos.reduce((acum, item) => {
           return acum +
             `<div class="list-group-item"> 
-            <a href = 'single.html?id=${item.todoID}'> <span class="title"> ${item.title} (${item.todoID})</span></a>
-            <span class="edit">
-              <a href ='/edit.html?id=${item.todoID}'><img src="images/edit.svg" alt= "edit" /></a>
-            </span>
-            <span class="garbage" >
-              <img src="images/garbage.svg" alt="garbage" data-id = ${item.todoID} />
-            </span>
-          </div>`
+              <span class="title"><a href = 'single.html?id=${item.todoID}'>${item.title} (${item.todoID})</a></span>
+              <small class="status" data-id = ${item.todoID}>
+                ${
+                  item.done ? 'Done' : 'Pending...'
+                }
+              </small>
+              <span class="edit">
+                <a href ='/edit.html?id=${item.todoID}'><img src="images/edit.svg" alt ="edit" /></a>
+              </span>
+              <span class="garbage" >
+                <img src="images/garbage.svg" alt="garbage" data-id = ${item.todoID} />
+              </span>
+            </div>`
         }, '')
       )
 
@@ -31,11 +37,10 @@ $(() => {
       $('.garbage').map((item) => {
         const $eachBin = $($('.garbage')[item]) 
         $eachBin.click((event) => {
-          console.log(event.target)
-          console.log(event.target.dataset)
+          // console.log(event.target)
+          // console.log(event.target.dataset)
           const id = event.target.dataset.id
-          event.target.style.cursor = 'pointer'
-          console.log(id)
+          // console.log(id)
           if(isValidId(id)){
             $.ajax({
               type: 'DELETE',
@@ -52,15 +57,54 @@ $(() => {
           }
         });
       })
-    })
-    .catch(err => {
-      console.log(err)
+
+      // Marking done as Pending or vice-versa -> 
+      // Approach : getting info of a stored todo in database using id then sending updated todo
+      $('.status').click(event => {
+        const id = event.target.dataset.id;
+        console.log(id)
+        if (isValidId(id)){
+          $.get(`${API_URL}/${id}`)
+            .then(todos => {
+              const todo = todos[0] 
+              const updatedTodo = {
+                title : todo.title,
+                description: todo.description,
+                priority : todo.priority,
+                done: !todo.done, // toggle
+              } 
+              console.log(updatedTodo)
+              $.ajax({
+                type: "PUT",
+                url: `${API_URL}/${id}`,
+                data: JSON.stringify(updatedTodo),
+                dataType: "json",
+                contentType: "application/json;charset=utf-8",
+              })
+            .then(result => {
+              window.location = '/'
+            })
+            .catch(err => {
+              // Can not toggle in DB
+            })
+          })
+        }else{
+        // Invalid ID
+      }
     })
 
+  })
+  .catch(err => {
+    console.log(err)
+  })
 
-    function isValidId(){
-      return true;
-    }
+  function isValidId(){
+    return true;
+  }
+
+  function validTodo(todo){
+    return true;
+  }
 
   // Add more todos by redirecting to new.html page
   $('.addbtn').click(event => {

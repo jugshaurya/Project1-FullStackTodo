@@ -46,6 +46,7 @@ $(() => {
       title: $title,
       description : $description,
       priority: $priority,
+      done: false
     };
 
     // validate todos

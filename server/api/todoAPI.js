@@ -112,15 +112,17 @@ router.put('/:id', (req, res) => {
   const id = req.params.id
   if(isValidId(id)){
     if (validTodo(req.body)) {
+      const {done = false} = req.body 
       const todo = {
         title: req.body.title,
         description: req.body.description,
         priority: req.body.priority,
         date : new Date(),
+        done : done,
         // update — knex.update(data, [returning])
       }
       knex('todos')
-        .update(todo, ['todoID', 'title', 'description', 'priority','date'])
+        .update(todo, '*')
         .where({todoID: id})
         .then(result => {
           res.json(result)

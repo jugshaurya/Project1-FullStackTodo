@@ -1,20 +1,18 @@
-*{
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-size: 1em;
+    font-family: 'Montserrat', sans-serif;
 }
 
-body{    
-    width: 100vw;
-    height: 100vh;
-}
-
-h1{
+h1 {
     margin-top: 1em;
     margin-bottom: 1em;
+    font-size: 3em;
     text-align: center;
-    color: rgb(0,200,200);
+    color: rgb(0, 200, 200);
     text-shadow: 1px 1px 1px black;
     text-decoration: underline;
 }
@@ -24,14 +22,23 @@ h1:hover {
     text-shadow: 1px 1px 1px black;
 }
 
-.edit:hover , .garbage:hover{
+.edit:hover,
+.garbage:hover {
     transform: scale(1.5);
+    cursor : pointer;
 }
 
+.status:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+
 .todos {
-    box-shadow: 6px 6px 10px 1px gray , 6px 6px 10px 3px gray ;  
+    -webkit-box-shadow: 16px 20px 28px -3px #757575;
+    box-shadow: 16px 20px 28px -3px #757575;
     display: block;
-    background: rgb(0,200,200);
+    background: rgb(0, 200, 200);
     border-radius: 10px;
     padding-left: 1em;
     padding-right: 0px;
@@ -53,23 +60,23 @@ h1:hover {
     justify-content: center;
 }
 
-.addbtn img{
+.addbtn img {
     height: 50%;
     position: absolute;
-    top : -.7em;
+    top: -.7em;
     left: -.7em;
 }
 
-.list-group-item:hover{
-    background:lightgray;    
+.list-group-item:hover {
+    background: lightgray;
 }
 
-.list-group-item >a {
+.list-group-item>a {
     text-decoration: none;
 }
 
 .list-group-item img {
-    width: 20px;    
+    width: 20px;
 }
 
 .list-group-item {
@@ -77,11 +84,35 @@ h1:hover {
     align-items: center;
 }
 
-.list-group-item > a {
+.list-group-item .title {
     flex-grow: 1;
+    /* border:3px solid red; */
 }
 
-.edit{
+small {
+    font-weight: 800;
+    margin-right: 1em;
+    margin-left: 2em;
+    align-self: flex-end;
+    color: blue;
+    /* border: 3px solid red; */
+}
+
+small:hover{
+    text-decoration: underline;
+}
+
+.edit {
     margin-right: 2em;
     padding: .3em;
+}
+
+.bottom-right-side {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.bottom-right-side img {
+    width: 20px;
 }
