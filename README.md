@@ -15,7 +15,8 @@ handlebars.js as templating Engine for Express
 express.js for routing and rendering Pages
 + 
 FrontEnd (Bootstrap)
-+ Ajax Request for data from API
++
+Ajax Request for data request to API at server
 ```
 
 Steps followed : 
@@ -64,7 +65,8 @@ Migration and Seeding
     -> will generate a file named knexfile.js
 
   $ knex migrate:make todos 
-    -> create a migration file inside migration folder to define the structure of table. (see knexfile.js for example)
+    -> create a migration file inside migration folder to define the structure of table. 
+    (see knexfile.js for example)
 
   $ knex migrate:latest 
    -> creating table inside tododb
@@ -138,5 +140,6 @@ edit_delete.html
   edit page - redirection from both index page and single page
   delete btn - redirection from both index page and single page
 
-
+delete + edit btns are added
+functionality added
 
