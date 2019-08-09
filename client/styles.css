@@ -5,6 +5,11 @@
     font-size: 1em;
 }
 
+body{    
+    width: 100vw;
+    height: 100vh;
+}
+
 h1{
     margin-top: 1em;
     margin-bottom: 1em;
@@ -14,11 +19,20 @@ h1{
     text-decoration: underline;
 }
 
+h1:hover {
+    transform: scale(1.1);
+    text-shadow: 1px 1px 1px black;
+}
+
+.edit:hover , .garbage:hover{
+    transform: scale(1.5);
+}
 
 .todos {
     box-shadow: 6px 6px 10px 1px gray , 6px 6px 10px 3px gray ;  
     display: block;
     background: rgb(0,200,200);
+    border-radius: 10px;
     padding-left: 1em;
     padding-right: 0px;
 }
@@ -50,9 +64,7 @@ h1{
     background:lightgray;    
 }
 
-
-
-.title > a {
+.list-group-item >a {
     text-decoration: none;
 }
 
@@ -62,22 +74,14 @@ h1{
 
 .list-group-item {
     display: flex;
+    align-items: center;
 }
 
-.list-group-item .title {
+.list-group-item > a {
     flex-grow: 1;
 }
-.list-group-item .edit{
-    margin-right:1em;
-} 
 
 .edit{
+    margin-right: 2em;
     padding: .3em;
-    border: 3px solid red;
-}
-
-.garbage{
-    padding: .3em;
-    border: 3px solid blue;
-
 }

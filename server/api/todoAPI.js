@@ -146,6 +146,7 @@ router.put('/:id', (req, res) => {
 })
 
 router.delete('/:id', (req, res)  => {
+  console.log(req.params.id)
   const id = req.params.id
   if(isValidId(id)){
     knex('todos')
