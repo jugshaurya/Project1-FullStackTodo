@@ -6,6 +6,13 @@
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
 }
+/* 
+body{
+    background: rgba(15,52,67,1);
+    background: linear-gradient(to bottom left, rgba(15,52,67,1) 26%, rgba(15,52,67,1) 66%, rgba(15,52,67,1) 75%, rgba(210,255,82,1) 75%);
+    width: 100vw;
+    height: 100vh;
+} */
 
 h1 {
     margin-top: 1em;
@@ -17,10 +24,6 @@ h1 {
     text-decoration: underline;
 }
 
-h1:hover {
-    transform: scale(1.1);
-    text-shadow: 1px 1px 1px black;
-}
 
 .edit:hover,
 .garbage:hover {
@@ -116,3 +119,4 @@ small:hover{
 .bottom-right-side img {
     width: 20px;
 }
+
