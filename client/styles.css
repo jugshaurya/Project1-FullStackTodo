@@ -5,6 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
+    font-size:1.01em;
 }
 /* 
 body{
@@ -111,12 +112,45 @@ small:hover{
 }
 
 .bottom-right-side {
+    padding: 1em;
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    justify-content: center;
+}
+
+.bottom-right-side > p {
+    /* padding:1em; */
+    flex-grow: 1;    
 }
 
 .bottom-right-side img {
     width: 20px;
 }
 
+.in_all{
+    margin-right: 1em; 
+}
+
+/* single.js file */
+
+.card-header{
+    display: flex;
+    justify-content: center;
+}
+
+.card-header > span{
+    font-size: 1.2em;
+    color: blue;
+    flex-grow: 1;
+    align-self: center;
+}
+
+.card-body .card-text {
+    font-size: 1.3em;
+    padding: 1em;
+    background: rgb(240, 219, 219);
+    color: black; 
+}
+
+.in_single_file {
+    align-self: center;
+}

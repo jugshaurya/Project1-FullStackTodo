@@ -17,7 +17,8 @@ $(() => {
         todos.reduce((acum, item) => {
           return acum +
             `<div class="list-group-item"> 
-              <span class="title"><a href = 'single.html?id=${item.todoID}'>${item.title} (${item.todoID})</a></span>
+              <span class="badge badge-dark in_all">${item.priority}</span>
+              <span class="title"><a href = 'single.html?id=${item.todoID}'>${item.title}</a></span>
               <small class="status" data-id = ${item.todoID}>
                 ${
                   item.done ? 'Done' : 'Pending...'
