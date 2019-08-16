@@ -1,11 +1,6 @@
 // File for a single Todo 
 // Functionality :- display particular todo
 
-
-function get_id_from_url(){
-  return  window.location.href.split('=')[1]
-}
-
 $(() => {
   const id = get_id_from_url()
   // Showing all Todos from DB
@@ -57,16 +52,16 @@ $(() => {
         const $eachBin = $($('.garbage')[todo])
         $eachBin.click((event) => {
           const id = event.target.dataset.id
-          if(!isValidId(id)) return 
+          if(!isValidId(id)) renderErrorPage('Invalid ID') 
           $.ajax({
             type: 'DELETE',
             url: `${API_URL}/${id}`,
           })
           .then(() => {
-            window.location = '/'
+            renderHomePage()
           })
           .catch(() => {
-            window.location = '/error.html'
+            renderErrorPage('Server Delete Error') 
           })
         })
       })

@@ -11,46 +11,21 @@
 
 $(() => {
   // Populating the form with todo of given id
-  const id = Number(window.location.href.split('=')[1])
-  console.log(id)
-  if(!isValidID){
-    //errror and return
-    window.location = '/error.html'
-  }
-
+  const id = get_id_from_url()
+  if(!isValidId(id)) renderErrorPage('Invalid ID')
   $.get(`${API_URL}/${id}`)
     .then(todos => {
-      const todo = todos[0]
-      console.log(todo)
-      $('#title').val(todo.title)
-      $('#description').val(todo.description)
-      $('#priority').val(todo.priority)
-
+      setTodoToForm(todos[0])
     })
     .catch(err => {
-      console.log(err)
-      window.location = '/error.html'
+      renderErrorPage('Server Get/id Error')
     })
-
-  $('form').submit(e => {
-    e.preventDefault()
-
-  })
-
-  $('form').submit(e => {
-    e.preventDefault()
-    const $title = $('#title').val()
-    const $description = $('#description').val()
-    const $priority = $('#priority').val()
-    const todo = {
-      title: $title,
-      description : $description,
-      priority: $priority,
-      done: false
-    };
-
-    // validate todos
-    if(validTodo(todo)){
+  
+  // Submitting the edited todo
+  $('form').submit(event => {
+    event.preventDefault()
+    const todo = getTodoFromForm()
+    if(!validTodo(todo)) renderErrorPage('Invalid Todo') 
       $.ajax({
         type: "PUT",
         url: `${API_URL}/${id}`,
@@ -59,18 +34,7 @@ $(() => {
         contentType: "application/json;charset=utf-8",
       })
       .then(updatedTodo => {
-        window.location = '/'
+        renderHomePage()
       })
-    }else{
-      // Invalid Todo
-    }
-  })
-
-  function isValidID(id){
-    return true;
-  }
-
-  function validTodo(todo) {
-    return true;
-  }
+    })
 })
