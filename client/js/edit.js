@@ -25,7 +25,7 @@ $(() => {
   $('form').submit(event => {
     event.preventDefault()
     const todo = getTodoFromForm()
-    if(!validTodo(todo)) renderErrorPage('Invalid Todo') 
+    if(!isTodoValid(todo)) renderErrorPage('Invalid Todo') 
       $.ajax({
         type: "PUT",
         url: `${API_URL}/${id}`,
